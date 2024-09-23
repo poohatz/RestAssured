@@ -1,0 +1,75 @@
+{
+  "data": [
+    {
+      "type": "articles",
+      "id": "1",
+      "attributes": {
+        "title": "JSON:API paints my bikeshed!",
+        "body": "The shortest article. Ever.",
+        "created": "2015-05-22T14:56:29.000Z",
+        "updated": "2015-05-22T14:56:28.000Z"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "id": "42",
+            "type": "people"
+          }
+        }
+      }
+    },
+    {
+      "type": "articles",
+      "id": "2",
+      "attributes": {
+        "title": "Krotki artykul tytul",
+        "body": "Krotki art body",
+        "created": "2024-05-22T14:56:29.000Z",
+        "updated": "2024-05-22T14:56:28.000Z"
+      },
+      "relationships": {
+        "author": {
+          "data": {
+            "id": "49",
+            "type": "people"
+          }
+        }
+      }
+    }
+  ],
+  "included": [
+    {
+      "type": "people",
+      "id": "42",
+      "attributes": {
+        "name": "John",
+        "age": 80,
+        "gender": "male"
+      }
+    },
+    {
+      "id": "49",
+      "type": "people",
+      "attributes": {
+        "gender": "male",
+        "name": "Krzychu",
+        "age": "122"
+      }
+    },
+    {
+      "id": "jeKATVP"
+    },
+    {
+      "id": "OlZVeex"
+    },
+    {
+      "type": "people",
+      "attributes": {
+        "name": "Anna",
+        "age": 42,
+        "gender": "female"
+      },
+      "id": "83m2b6t"
+    }
+  ]
+}
