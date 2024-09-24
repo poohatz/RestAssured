@@ -11,6 +11,7 @@ import java.util.*;
 
 import static io.restassured.RestAssured.*;
 
+//several advanced tests
 @Test
 public class RestAssuredTest {
 
@@ -29,7 +30,6 @@ public class RestAssuredTest {
 
     @Test
     public void getAllIncludedThatMatchToSpecifiedQueryParams(){
-
 
         Map<String, Object> params = new HashMap<>();
         params.put("type", "people");
