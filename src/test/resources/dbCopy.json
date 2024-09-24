@@ -43,7 +43,7 @@
       "id": "42",
       "attributes": {
         "name": "John",
-        "age": 80,
+        "age": "80",
         "gender": "male"
       }
     },
@@ -57,6 +57,24 @@
       }
     },
     {
+      "id": "116",
+      "type": "people",
+      "attributes": {
+        "gender": "male",
+        "name": "Kowal",
+        "age": "111"
+      }
+    },
+    {
+      "id": "117",
+      "type": "people",
+      "attributes": {
+        "gender": "male",
+        "name": "Stefan",
+        "age": "121"
+      }
+    },
+    {
       "id": "jeKATVP"
     },
     {
@@ -66,7 +84,7 @@
       "type": "people",
       "attributes": {
         "name": "Anna",
-        "age": 42,
+        "age": "42",
         "gender": "female"
       },
       "id": "83m2b6t"

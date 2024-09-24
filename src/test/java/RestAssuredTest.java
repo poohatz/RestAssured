@@ -12,7 +12,7 @@ import java.util.*;
 import static io.restassured.RestAssured.*;
 
 @Test
-public class RestAssuredTests {
+public class RestAssuredTest {
 
 
     @Test
@@ -50,7 +50,7 @@ public class RestAssuredTests {
     }
 
     @Test
-    public void addNewManFromJsonAndDeleteIt(){
+    public void addNewUserFromJsonAndDeleteIt(){
 
         String manJson = "      {\n" +
                 "         \"type\":\"people\",\n" +
@@ -75,7 +75,7 @@ public class RestAssuredTests {
     }
 
     @Test
-    public void addNewManFromMapAndDeleteIt(){
+    public void addNewUserFromMapAndDeleteIt(){
 
         Map<String, Object> newMan = new HashMap<>();
         newMan.put("type", "people");
@@ -100,7 +100,7 @@ public class RestAssuredTests {
     }
 
     @Test
-    public void addNewManFromObjectAndDeleteIt(){
+    public void addNewUserFromObjectAndDeleteIt(){
 
         User newUser = new User("2222", "Pablo", "212", "male");
 
@@ -124,7 +124,7 @@ public class RestAssuredTests {
     }
 
     @Test
-    public void updateExistingManAndReverseOperation() throws ClassNotFoundException {
+    public void updateExistingUserAndReverseOperation() throws ClassNotFoundException {
 
         User newUser = RestAssured.get("http://localhost:3000/included/42").body().as(User.class);
 

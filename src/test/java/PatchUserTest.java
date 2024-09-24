@@ -14,7 +14,7 @@ public class PatchUserTest  extends BaseTest{
 
         User userUpdated =  given()
                                 .spec(reqSpec)
-                                .pathParam("userId", "116")
+                                .pathParam("userId", "117")
                                  .body(user).
                              when()
                                  .patch("{userId}").
@@ -23,7 +23,7 @@ public class PatchUserTest  extends BaseTest{
                                   .extract().body().as(User.class);
 
         Assert.assertEquals(userUpdated.getAttributes().get("name"), "Michael");
-        Assert.assertEquals(userUpdated.getId(), "116");
+        Assert.assertEquals(userUpdated.getId(), "117");
 
     }
 

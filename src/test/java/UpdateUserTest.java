@@ -10,11 +10,11 @@ public class UpdateUserTest  extends BaseTest{
     @Test
     public void updateUser(){
 
-        User user = new User("116", "Updated", "111", "female");
+        User user = new User("117", "Updated", "111", "female");
 
         User userUpdated =  given()
                                 .spec(reqSpec)
-                                .pathParam("userId", "116")
+                                .pathParam("userId", "117")
                                 .body(user).
                             when()
                                 .put("{userId}").

@@ -9,7 +9,7 @@ public class PostUserTest  extends BaseTest{
     @Test
     public void postUser(){
 
-        User user = new User("116", "Kowal", "54", "male");
+        User user = new User("118", "Janek", "54", "male");
 
         given()
                 .spec(reqSpec)
@@ -18,8 +18,8 @@ public class PostUserTest  extends BaseTest{
                 .post().
         then()
                 .assertThat().statusCode(201)
-                .assertThat().body("id", Matchers.equalTo("116"))
-                .assertThat().body("attributes.name", Matchers.equalTo("Kowal"));
+                .assertThat().body("id", Matchers.equalTo("118"))
+                .assertThat().body("attributes.name", Matchers.equalTo("Janek"));
 
     }
 
