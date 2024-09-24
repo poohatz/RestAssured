@@ -8,11 +8,11 @@ import java.util.Objects;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {
 
-    private int id;
+    private String id;
     private String type;
     private HashMap<String, String> attributes;
 
-    public User(int id, String name, String age, String gender) {
+    public User(String id, String name, String age, String gender) {
         this.id = id;
         this.type = "people";
 
@@ -27,14 +27,27 @@ public class User {
 
     }
 
+    public User(String name) {
+        this.type = "people";
+
+        HashMap<String, String> data = new HashMap<>();
+        data.put("name", name);
+
+        this.attributes = data;
+
+
+
+    }
+
+
     public User() {
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -59,7 +72,7 @@ public class User {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         User user = (User) o;
-        return id == user.id && Objects.equals(type, user.type) && Objects.equals(attributes, user.attributes);
+        return Objects.equals(id, user.id) && Objects.equals(type, user.type) && Objects.equals(attributes, user.attributes);
     }
 
     @Override

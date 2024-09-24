@@ -102,7 +102,7 @@ public class RestAssuredTests {
     @Test
     public void addNewManFromObjectAndDeleteIt(){
 
-        User newUser = new User(2222, "Pablo", "212", "male");
+        User newUser = new User("2222", "Pablo", "212", "male");
 
 
         given().
@@ -114,7 +114,7 @@ public class RestAssuredTests {
 
         User newUserCreated = RestAssured.get("http://localhost:3000/included/2222").body().as(User.class);
 
-        Assert.assertEquals(newUserCreated.getId(), 2222);
+        Assert.assertEquals(newUserCreated.getId(), "2222");
         Assert.assertEquals(newUser, newUserCreated);
 
         //cleaning data
@@ -142,7 +142,7 @@ public class RestAssuredTests {
         Assert.assertEquals(nameUpdated, "John");
 
         //reversing update
-        User reverseUpdateUser = new User(49, "Krzychu", "122", "male");
+        User reverseUpdateUser = new User("49", "Krzychu", "122", "male");
 
         given().
                 contentType(ContentType.JSON).body(reverseUpdateUser).
@@ -170,7 +170,7 @@ public class RestAssuredTests {
                 assertThat().body("attributes.name", Matchers.equalTo("Jacek"));
 
         //reversing update
-        User reverseUpdateUser = new User(49, "Krzychu", "122", "male");
+        User reverseUpdateUser = new User("49", "Krzychu", "122", "male");
 
         given().
                 contentType(ContentType.JSON).body(reverseUpdateUser).

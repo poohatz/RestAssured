@@ -1,8 +1,14 @@
+import io.restassured.path.json.JsonPath;
+import io.restassured.response.Response;
 import org.hamcrest.Matchers;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import static io.restassured.RestAssured.given;
-import static io.restassured.RestAssured.when;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
+import static io.restassured.RestAssured.*;
 
 public class GetUserTest extends BaseTest{
 
@@ -17,8 +23,6 @@ public class GetUserTest extends BaseTest{
         then()
                 .spec(respSpec)
                 .assertThat().body("attributes.name", Matchers.equalTo("John"));
-
-
 
     }
 
