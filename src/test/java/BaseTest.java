@@ -43,6 +43,7 @@ public class BaseTest {
 
     }
 
+    /*
     @AfterSuite
     public void tearDown () throws IOException {
 
@@ -52,5 +53,6 @@ public class BaseTest {
         Files.copy(file.toPath(), Paths.get(System.getProperty("user.home") + "/Pobrane/db.json"));
 
     }
+     */
 
 }

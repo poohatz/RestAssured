@@ -30,7 +30,7 @@ jobs:
       # Start JSON Server in background
       - name: Start JSON Server
         run: |
-          npx json-server --watch src/test/resources/db.json --port 3000 &
+          npx json-server --watch src/test/resources/dbCopy.json --port 3000 &
           sleep 20 # Wait for the server to fully start
           curl http://localhost:3000/
 
