@@ -58,6 +58,9 @@ jobs:
       - name: Run tests
         run: mvn test
 
+      - name: Generate Allure report
+        run: mvn allure:report
+
       # Upload test results or artifacts if needed
       - name: Upload Allure results
         if: always()
