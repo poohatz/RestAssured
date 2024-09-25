@@ -66,10 +66,10 @@ jobs:
       - name: Generate Allure report
         run: mvn allure:report
 
-      # Upload test results or artifacts if needed
-      - name: Upload Allure results
-        if: always()
+
+      - name: Upload TestNG report
         uses: actions/upload-artifact@v3
         with:
-          name: allure-results
-          path: target/allure-results
+          name: testng-report
+          path: target/test-output
+
