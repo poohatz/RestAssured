@@ -1,23 +1,39 @@
-name: Run Tests
+name: Run Tests with JSON Server
 
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
 
 jobs:
   test:
     runs-on: ubuntu-latest
 
     steps:
-      # Checkout repo
+      # Checkout repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Set up JDK 11
+      # Set up Node.js for JSON Server
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+
+      # Install JSON Server dependencies
+      - name: Install JSON Server
+        run: npm install json-server
+
+      # Start JSON Server in background
+      - name: Start JSON Server
+        run: |
+          npx json-server --watch db.json --port 3000 &
+          sleep 5 # Wait for the server to fully start
+
+      # Set up JDK 11 for tests
       - name: Set up JDK 11
         uses: actions/setup-java@v3
         with:
@@ -37,11 +53,11 @@ jobs:
       - name: Install dependencies
         run: mvn install -DskipTests
 
-      # Run tests with Maven
+      # Run tests with Maven (tests should use http://localhost:3000 for JSON Server)
       - name: Run tests
         run: mvn test
 
-      # Publish Allure results (optional)
+      # Upload test results or artifacts if needed
       - name: Upload Allure results
         if: always()
         uses: actions/upload-artifact@v3
