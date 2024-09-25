@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -17,6 +18,7 @@ public class GetUserTest extends BaseTest{
 
         given()
                 .pathParam("userId", "4772")
+                .filter(new AllureRestAssured())
                 .spec(reqSpec).
         when()
                 .get("{userId}").

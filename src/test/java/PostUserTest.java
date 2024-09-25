@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import model.User;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
@@ -13,6 +14,7 @@ public class PostUserTest  extends BaseTest{
 
         given()
                 .spec(reqSpec)
+                .filter(new AllureRestAssured())
                 .body(user).
         when()
                 .post().

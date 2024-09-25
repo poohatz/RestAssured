@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
 
@@ -10,7 +11,8 @@ public class GetAllUsersTest extends BaseTest{
     public void getAllUsers(){
 
         given()
-                .spec(reqSpec).
+                .spec(reqSpec)
+                .filter(new AllureRestAssured()).
         when()
                 .get().
         then()

@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import model.User;
 import org.hamcrest.Matchers;
 import org.testng.Assert;
@@ -15,6 +16,7 @@ public class PatchUserTest  extends BaseTest{
         User userUpdated =  given()
                                 .spec(reqSpec)
                                 .pathParam("userId", "117")
+                                .filter(new AllureRestAssured())
                                  .body(user).
                              when()
                                  .patch("{userId}").

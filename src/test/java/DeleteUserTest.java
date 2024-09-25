@@ -1,3 +1,4 @@
+import io.qameta.allure.restassured.AllureRestAssured;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 import org.hamcrest.Matchers;
@@ -17,6 +18,7 @@ public class DeleteUserTest extends BaseTest{
 
         given()
                 .pathParam("userId", "116")
+                .filter(new AllureRestAssured())
                 .spec(reqSpec).
         when()
                 .delete("{userId}").
