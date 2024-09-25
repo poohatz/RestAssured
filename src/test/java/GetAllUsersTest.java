@@ -1,3 +1,4 @@
+import io.qameta.allure.Epic;
 import io.qameta.allure.restassured.AllureRestAssured;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Test;
@@ -8,6 +9,7 @@ import static javax.management.Query.and;
 public class GetAllUsersTest extends BaseTest{
 
     @Test
+    @Epic("Get all users")
     public void getAllUsers(){
 
         given()

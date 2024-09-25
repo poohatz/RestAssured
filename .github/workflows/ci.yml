@@ -58,6 +58,9 @@ jobs:
       - name: Run tests
         run: mvn test
 
+      - name: List files in target directory
+        run: ls -la target
+
       - name: Generate Allure report
         run: mvn allure:report
 
