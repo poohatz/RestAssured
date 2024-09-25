@@ -54,12 +54,13 @@ jobs:
       - name: Install dependencies
         run: mvn install -DskipTests
 
+      - name: List files in target directory
+        run: ls -la target
+
       # Run tests with Maven (tests should use http://localhost:3000 for JSON Server)
       - name: Run tests
         run: mvn test
 
-      - name: List files in target directory
-        run: ls -la target
 
       - name: Generate Allure report
         run: mvn allure:report
