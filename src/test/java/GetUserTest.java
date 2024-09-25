@@ -16,7 +16,7 @@ public class GetUserTest extends BaseTest{
     public void getUser(){
 
         given()
-                .pathParam("userId", "42")
+                .pathParam("userId", "4772")
                 .spec(reqSpec).
         when()
                 .get("{userId}").
