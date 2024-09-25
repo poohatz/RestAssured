@@ -11,7 +11,7 @@ import java.util.*;
 
 import static io.restassured.RestAssured.*;
 
-//several RestAssured API tests
+//several additional RestAssured API tests
 @Test
 public class RestAssuredTest {
 
