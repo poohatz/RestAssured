@@ -50,16 +50,17 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-maven-
 
-      # Install Maven dependencies
-      - name: Install dependencies
-        run: mvn install -DskipTests
+      - name: Clean and Build
+        run: mvn clean install -DskipTests=false
 
       - name: List files in target directory
         run: ls -la target
 
-      # Run tests with Maven (tests should use http://localhost:3000 for JSON Server)
       - name: Run tests
-        run: mvn test
+        run: mvn test -DskipTests=false | tee mvn-test.log
+
+      - name: Show test logs
+        run: cat mvn-test.log
 
 
       - name: Generate Allure report
