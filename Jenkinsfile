@@ -2,26 +2,30 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
+        stage('Checkout') {
             steps {
-                // Get some code from a GitHub repository
+                // Pobieranie kodu źródłowego z repozytorium
                 git 'https://github.com/poohatz/RestAssured'
-
-                // Run Maven on a Unix agent.
-                sh "mvn clean test"
-
-                // To run Maven on a Windows agent, use
-                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
             }
+        }
 
+        stage('Build and Test') {
+            steps {
+                // Uruchomienie budowy i testów Mavena
+                sh 'mvn clean test'
+            }
             post {
-                // If Maven was able to run the tests, even if some of the test
-                // failed, record the test results and archive the jar file.
-                success {
+                always {
+                    // Zawsze wyświetl raporty testów TestNG, nawet jeśli testy nie powiodły się
                     junit '**/target/surefire-reports/TEST-*.xml'
-                    archiveArtifacts 'target/*.jar'
+                }
+                success {
+                    // Archiwizowanie pliku JAR po udanym budowaniu
+                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
                 }
             }
         }
+
     }
+
 }
