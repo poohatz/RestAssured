@@ -14,16 +14,6 @@ pipeline {
                 // Uruchomienie budowy i testów Mavena
                 sh 'mvn clean test'
             }
-            post {
-                always {
-                    // Zawsze wyświetl raporty testów TestNG, nawet jeśli testy nie powiodły się
-                    junit '**/target/surefire-reports/TEST-*.xml'
-                }
-                success {
-                    // Archiwizowanie pliku JAR po udanym budowaniu
-                    archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
-                }
-            }
         }
 
         stage('Publish reports') {
