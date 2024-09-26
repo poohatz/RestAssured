@@ -11,19 +11,29 @@ pipeline {
 
         stage('Build and Test') {
             steps {
-                // Uruchomienie budowy i testów Mavena
+                // Uruchomienie testów TestNG
                 sh 'mvn clean test'
             }
-        }
-
-        stage('Publish reports') {
-
-            steps{
-                publishHTML([allowMissing: true, alwaysLinkToLastBuild: true, keepAll: true, reportDir: '', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+            post {
+                always {
+                    // Zawsze archiwizuj raporty TestNG, nawet w przypadku niepowodzenia
+                    archiveArtifacts artifacts: 'test-output/**/*', allowEmptyArchive: true
+                }
             }
-
         }
-
     }
 
+    post {
+        always {
+            // Dodaj opcję archiwizowania raportów HTML
+            publishHTML([target: [
+                allowMissing: false,
+                alwaysLinkToLastBuild: true,
+                keepAll: true,
+                reportDir: 'test-output',
+                reportFiles: 'index.html',
+                reportName: 'TestNG HTML Report'
+            ]])
+        }
+    }
 }
