@@ -17,7 +17,7 @@ pipeline {
             post {
                 always {
                     // Zawsze archiwizuj raporty TestNG, nawet w przypadku niepowodzenia
-                    archiveArtifacts artifacts: 'test-output/**/*', allowEmptyArchive: true
+                    archiveArtifacts artifacts: 'target/**/*', allowEmptyArchive: true
                 }
             }
         }
@@ -30,7 +30,7 @@ pipeline {
                 allowMissing: false,
                 alwaysLinkToLastBuild: true,
                 keepAll: true,
-                reportDir: 'test-output',
+                reportDir: 'target',
                 reportFiles: 'index.html',
                 reportName: 'TestNG HTML Report'
             ]])
