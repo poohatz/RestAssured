@@ -17,7 +17,7 @@ public class GetUserTest extends BaseTest{
     public void getUser(){
 
         given()
-                .pathParam("userId", "4772")
+                .pathParam("userId", "42")
                 .filter(new AllureRestAssured())
                 .spec(reqSpec).
         when()
